@@ -4,15 +4,23 @@ import VueRouter from 'vue-router'
 // 2. 手动安装 VueRouter 
 Vue.use(VueRouter)
 
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
 import router from "./router.js"
+
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 // 导入 app 组件
 import app from './App.vue'
 
 import "./lib/mui/css/mui.css"
+// 导入MUI的扩展图标
+import "./lib/mui/css/icons-extra.css"
 
-import { Header } from 'mint-ui';
-
+import { Header, Swipe, SwipeItem } from 'mint-ui';
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 Vue.component(Header.name, Header);
 
 var vm = new Vue({
@@ -21,5 +29,3 @@ var vm = new Vue({
   // 4. 将路由对象挂载到 vm 上
   router
 })
-
-console.log(123)
